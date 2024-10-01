@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipino Cuisines</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 5px;
+        }
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url(https://jocyls.com/wp-content/uploads/2023/04/filipino-food.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        h1 {
+            font-size: 70px;
+            color: #ffffff;
+            -webkit-text-stroke: 2px #007BFF;
+            transition: font-size 0.3s ease;
+        }
+        h1:hover {
+            font-size: 80px;
+        }
+        .container {
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin: 20px auto;
+            background-color: #ffffffd1;
+            border-radius: 30px;
+            width: 1100px;
+        }
+        .cuisine-container {
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin: 20px auto;
+            background-color: #ffffff88;
+            border-radius: 30px;
+            width: 1100px;
+            align-items: center;
+            
+        }
+        .cuisine-card {
+            border: 2px solid #636363;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            height: 300px;
+            width: 150px;
+            background-color: #ffffffb5;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease; 
+            cursor: pointer;
+            justify-content: center;
+        }
+        .cuisine-card:hover {
+            transform: scale(1.05);
+            background-color: #e0e0e0;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .cuisine-card.expanded {
+            height: 500px;
+            width: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .buttons-container {
+            display: none;
+            flex-direction: column;
+        }
+        .cuisine-card.expanded .buttons-container {
+            display: flex;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #06ca4b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Delicious Filipino Cuisines</h1>
+    </div>
+    <div class="cuisine-container">
+        <div class="cuisine-card" onclick="toggleCard(this)">
+            <h2>Adobo</h2>
+            <p>A popular Filipino dish made of meat marinated in vinegar, soy sauce, garlic, and spices.</p>
+            <div class="buttons-container">
+                <button onclick="showInfo(event, 'Adobo', 'Adobo is often considered the unofficial national dish of the Philippines. It can be made with chicken, pork, or beef.');">More Info</button>
+                <button onclick="showIngredients(event, 'Adobo', ['Chicken or Pork', 'Vinegar', 'Soy Sauce', 'Garlic', 'Bay Leaves', 'Peppercorns']);">Show Ingredients</button>
+            </div>
+        </div>
+
+        <div class="cuisine-card" onclick="toggleCard(this)">
+            <h2>Sinigang</h2>
+            <p>A sour soup made from tamarind, tomatoes, and various meats or seafood.</p>
+            <div class="buttons-container">
+                <button onclick="showInfo(event, 'Sinigang', 'Sinigang is known for its savory and sour flavor. It is often served with rice.');">More Info</button>
+                <button onclick="showIngredients(event, 'Sinigang', ['Tamarind', 'Tomatoes', 'Pork or Shrimp', 'Radish', 'Eggplant', 'Long Green Chili']);">Show Ingredients</button>
+            </div>
+        </div>
+
+        <div class="cuisine-card" onclick="toggleCard(this)">
+            <h2>Lechon</h2>
+            <p>Roasted whole pig, famous for its crispy skin and tender meat.</p>
+            <div class="buttons-container">
+                <button onclick="showInfo(event, 'Lechon', 'Lechon is often served during special occasions and is a must-try in the Philippines.');">More Info</button>
+                <button onclick="showIngredients(event, 'Lechon', ['Whole Pig', 'Marinade (varies)', 'Spices']);">Show Ingredients</button>
+            </div>
+        </div>
+
+        <div class="cuisine-card" onclick="toggleCard(this)">
+            <h2>Pancit</h2>
+            <p>Stir-fried noodles with various vegetables and meats.</p>
+            <div class="buttons-container">
+                <button onclick="showInfo(event, 'Pancit', 'Pancit comes in many variations and is a staple in Filipino celebrations.');">More Info</button>
+                <button onclick="showIngredients(event, 'Pancit', ['Noodles', 'Vegetables (Carrots, Cabbage)', 'Meat (Chicken, Pork)', 'Soy Sauce', 'Garlic']);">Show Ingredients</button>
+            </div>
+        </div>
+
+        <div class="cuisine-card" onclick="toggleCard(this)">
+            <h2>Kare-Kare</h2>
+            <p>A traditional Filipino stew made with oxtail, tripe, and a rich peanut sauce.</p>
+            <div class="buttons-container">
+                <button onclick="showInfo(event, 'Kare-Kare', 'Kare-Kare is often served with shrimp paste and is a favorite during fiestas and family gatherings.');">More Info</button>
+                <button onclick="showIngredients(event, 'Kare-Kare', ['Oxtail', 'Tripe', 'Peanut Butter', 'Eggplant', 'Banana Heart', 'Shrimp Paste', 'Vegetables']);">Show Ingredients</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let expandedCard = null;
+
+        function showInfo(event, cuisine, info) {
+            event.stopPropagation();
+            alert(cuisine + ": " + info);
+        }
+
+        function showIngredients(event, cuisine, ingredients) {
+            event.stopPropagation();
+            alert(cuisine + " Ingredients: " + ingredients.join(', '));
+        }
+
+        function toggleCard(card) {
+            if (expandedCard && expandedCard !== card) {
+                expandedCard.classList.remove('expanded');
+                expandedCard.querySelector('.buttons-container').style.display = 'none';
+            }
+            card.classList.toggle('expanded');
+
+            const buttonsContainer = card.querySelector('.buttons-container');
+            buttonsContainer.style.display = card.classList.contains('expanded') ? 'flex' : 'none';
+
+            expandedCard = card.classList.contains('expanded') ? card : null;
+        }
+
+        document.addEventListener('click', function(event) {
+            if (expandedCard && !expandedCard.contains(event.target)) {
+                expandedCard.classList.remove('expanded');
+                expandedCard.querySelector('.buttons-container').style.display = 'none';
+                expandedCard = null;
+            }
+        });
+    </script>
+</body>
+</html>
