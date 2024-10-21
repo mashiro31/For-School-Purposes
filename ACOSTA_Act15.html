@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>While Loop JS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000;
+            color: #00ff00;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 15px 20px;
+            border-bottom: 2px solid #00ff00;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 0;
+        }
+        h1 {
+            font-size: 28px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px;
+            width: 80%;
+            font-size: 30px;
+        }
+        .output-card {
+            background-color: #1e1e1e;
+            padding: 20px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            color: #00ff00;
+            height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        .btn {
+            padding: 15px 20px;
+            background-color: #00ff00;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Display Numbers Less Than 5</h1>
+    </header>
+    <div class="container">
+        <div class="output-card" id="output">Output will be displayed here...</div>
+        <button class="btn" onclick="startExecution()">Start</button>
+    </div>
+
+    <script>
+        function startExecution() {
+            let num = 0;
+            let outputElement = document.getElementById('output');
+            outputElement.innerText = '';
+
+            const displayNumber = () => {
+                if (num < 5) {
+                    outputElement.innerText += num + '\n'; 
+                    num++; 
+                    outputElement.scrollTop = outputElement.scrollHeight; 
+                    setTimeout(displayNumber, 200);
+                }
+            };
+
+            displayNumber();
+        }
+    </script>
+</body>
+</html>
+<!-- © JOHN VINCENT O. ACOSTA -->

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Price Checker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+        }
+        .container {
+            padding: 2px;
+        }
+        .content {
+            padding: 15px;
+            text-align: center;
+        }
+        .main {
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 5px auto;
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            transition: transform 0.3s ease;
+        }
+        .main:hover {
+            transform: scale(1.02);
+        }
+        .codes {
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            animation: fadeIn 0.5s ease;
+        }
+        .codes p {
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+            margin: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        .codes p:hover {
+            background-color: #e0e0e0;
+        }
+        #check {
+            color: #666;
+            font-size: 20px;
+            width: 80%;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        #check:focus {
+            border-color: #333;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 12px 30px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #555;
+        }
+        h1 {
+            font-size: 50px;
+            color: #333;
+            text-transform: uppercase;
+            animation: slideDown 0.5s ease;
+        }
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+            }
+            h1 {
+                font-size: 40px;
+            }
+            .codes {
+                gap: 1px;
+                font-size: 16px;
+            }
+            #check {
+                font-size: 18px;
+                padding: 12px;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Price Checker</h1>        
+        </div>
+    </div>
+    <div class="main">
+        <div class="codes">
+            <h2>Product Codes:</h2>
+            <p>Big Mac = <strong>BGMAC</strong></p>
+            <p>Medium Fries = <strong>MFRIES</strong></p>
+            <p>McChicken Sandwich = <strong>MCKCH</strong></p>
+            <p>20-Piece McNuggets = <strong>CHKN20</strong></p>
+            <p>McFlurry = <strong>MCFLRY</strong></p>
+        </div>
+        <input type="text" id="check" placeholder="Enter the product code!">
+        <input class="btn" type="button" value="Check Price!" onclick="displayPrice()">
+    </div>
+
+    <script>
+        function displayPrice() {
+            const code = document.getElementById('check').value.toUpperCase();
+            let price = '';
+            switch (code) {
+                case 'BGMAC':
+                    price = 'Big Mac: ₱170 - ₱200';
+                    break;
+                case 'MFRIES':
+                    price = 'Medium Fries: ₱65 - ₱80';
+                    break;
+                case 'MCKCH':
+                    price = 'McChicken Sandwich: ₱120 - ₱135';
+                    break;
+                case 'CHKN20':
+                    price = '20-Piece McNuggets: ₱400 - ₱450';
+                    break;
+                case 'MCFLRY':
+                    price = 'McFlurry: ₱50 - ₱65';
+                    break;
+                default:
+                    price = 'Product code not found.';
+            }
+            alert(price);
+        }
+    </script>
+</body>
+</html>
+<!-- © JOHN VINCENT O. ACOSTA -->

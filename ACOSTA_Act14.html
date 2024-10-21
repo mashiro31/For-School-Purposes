@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>For Loop JS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #c5c5c5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2em;
+            color: #4ec9b0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        input[type="number"], .btn {
+            width: 360px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #4ec9b0;
+            outline: none;
+            transition: border-color 0.3s;
+            background-color: #1e1e1e;
+            color: #c5c5c5;
+        }
+        input[type="number"]:focus, .btn:hover {
+            border-color: #60d6b8;
+        }
+        .btn {
+            background-color: #4ec9b0;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #60d6b8;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #c5c5c5;
+            border: 1px solid #4ec9b0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #333;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 360px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FOR LOOP</h1>
+        <input type="number" id="number" placeholder="Enter a number!" min="1">
+        <input class="btn" type="button" value="Display Numbers" onclick="displayNumbers()">
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function displayNumbers() {
+            const number = parseInt(document.getElementById('number').value);
+            const resultDiv = document.getElementById('result');
+            let output = '';
+
+            if (isNaN(number) || number < 1) {
+                output = 'Please enter a valid positive number.';
+            } else {
+                for (let i = 1; i < number; i++) {
+                    output += i + '<br>';
+                }
+            }
+
+            resultDiv.innerHTML = output;
+        }
+    </script>
+</body>
+</html>
+<!-- © JOHN VINCENT O. ACOSTA -->
